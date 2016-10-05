@@ -1,0 +1,19 @@
+version: '2'
+services:
+  assignment1:
+    build: assignment1/.
+    ports:
+      - "5000:5000"
+    volumes:
+     - .:/assignment1
+    links:
+     - db
+    depends_on:
+     - db
+  db:
+    build: db/.
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: c8h1e4n
+      MYSQL_DATABASE: mysql
